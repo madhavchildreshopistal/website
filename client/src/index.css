@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(280, 80%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(195, 70%, 85%);
+  --secondary-foreground: hsl(280, 80%, 60%);
+  --accent: hsl(45, 80%, 75%);
+  --accent-foreground: hsl(280, 80%, 60%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(280, 80%, 60%);
+  --radius: 1rem;
+  
+  /* Child-friendly theme colors */
+  --children-purple: hsl(280, 100%, 70%);
+  --children-pink: hsl(330, 100%, 85%);
+  --children-blue: hsl(195, 100%, 75%);
+  --children-yellow: hsl(45, 100%, 80%);
+  --children-orange: hsl(25, 100%, 75%);
+  --children-green: hsl(120, 50%, 70%);
+  --neutral-light: hsl(210, 40%, 98%);
+  --text-dark: hsl(220, 9%, 12%);
+  --text-gray: hsl(220, 9%, 46%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--children-purple) 0%, var(--children-pink) 50%, var(--children-blue) 100%);
+  }
+  
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--children-purple), var(--children-pink));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-pediatric {
+    background: linear-gradient(135deg, var(--children-orange), var(--children-yellow));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-pediatric:hover {
+    background: linear-gradient(135deg, hsl(25, 100%, 70%), hsl(45, 100%, 75%));
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-pediatric-outline {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .btn-pediatric-outline:hover {
+    background: white;
+    color: var(--children-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+  }
+  
+  .appointment-highlight {
+    position: relative;
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(139, 69, 19, 0.6), 0 0 30px rgba(255, 165, 0, 0.4);
+      transform: scale(1.05);
+    }
+  }
+  
+  .appointment-highlight::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 400% 400%;
+    border-radius: 6px;
+    z-index: -1;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  .emergency-contact {
+    background-color: hsl(0, 100%, 97%);
+    border-left: 4px solid hsl(0, 84%, 60%);
+  }
+  
+  .contact-info-bg {
+    background-color: hsl(210, 40%, 98%);
+  }
+}
